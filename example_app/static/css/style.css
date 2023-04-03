@@ -1,0 +1,10 @@
+body{
+    font-family: "Times New Roman";
+    background: aliceblue;
+}
+h1{color:crimson; text-align: center}
+th.tableMenu{text-align: center; border: 1px solid black;}
+table.tableMenu{background: aqua; width: 100%; border-collapse: separate}
+table.table1{background: #ffffff;}
+table.warehouse{background: white; width: 100%; border-collapse: collapse}
+th.warehouse{text-align: center; border: 1px solid black}

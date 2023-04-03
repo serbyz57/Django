@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>АвтоЗапас</title>
+  <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}" />
+</head>
+<body>
+  <h1>{% block header %}{% endblock header %}</h1>
+  <div>
+    <table class="tableMenu">
+      <th class="tableMenu"><a href="/">Главная</a></th>
+    <th class="tableMenu"><a href="/about">О нас</a></th>
+    <th class="tableMenu"><a href="/contact">Контакты</a></th>
+    <th class="tableMenu"><a href="/suppliers">Список поставщиков</a></th>
+    <th class="tableMenu"><a href="/warehouse">Наличие на складе</a></th>
+    <th class="tableMenu"><a href="/products">Каталог товаров</a></th>
+    </table>
+    <hr>
+  </div>
+  <div>{% block content %}{% endblock content %}</div>
+</body>
+</html>
