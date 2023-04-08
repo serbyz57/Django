@@ -15,7 +15,8 @@
   <tr><th class="warehouse">Название товара</th><th class="warehouse">Описание товара</th>
     <th class="warehouse">Поставщик</th></tr>
     {% for product in productse %}
-    <tr><td>{{ product.name }}</td><td>{{ product.description }}</td><td>{{ product.company.name }}</td></tr>
+    <tr><td align="center">{{ product.name }}</td><td align="center">{{ product.description }}</td>
+        <td align="center">{{ product.company.name }}</td></tr>
     {% endfor %}
 </table>
 {% endblock content %}

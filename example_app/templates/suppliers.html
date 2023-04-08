@@ -6,7 +6,8 @@
 {% block content %}
 <table class="warehouse">
   <tr><th class="warehouse">Номер</th><th class="warehouse">Название компании</th></tr>
-    {% for  %}
-  <tr><td class="warehouse">{{ company.id }}</td><td class="warehouse">{{ company.name }}</td></tr>
+    {% for company in companies %}
+  <tr><td align="center">{{ company.id }}</td><td align="center">{{ company.name }}</td></tr>
+    {% endfor %}
 </table>
 {% endblock content %}

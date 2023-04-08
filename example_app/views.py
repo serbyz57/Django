@@ -17,8 +17,10 @@ def contact(request):
 
 
 def suppliers(request):
-    company, created = Company.objects.bulk_get_or_create[(name="Диллер"), (name="Китай")]
-    return render(request, 'suppliers.html', {'company': company})
+    company1, created = Company.objects.get_or_create(name="Диллер")
+    company2, created = Company.objects.get_or_create(name='Китай')
+    companies = Company.objects.all()
+    return render(request, 'suppliers.html', {'company1': company1, 'company2': company2, 'companies': companies})
 
 
 def warehouse(request):
