@@ -29,9 +29,8 @@ def warehouse(request):
 
 def products(request):
     productse = Product.objects.all()
-    companies = Company.objects.all()
     form = ProductForm()
-    return render(request, 'products.html', {'productse': productse, 'companies': companies, 'form': form})
+    return render(request, 'products.html', {'productse': productse, 'form': form})
 
 
 def create(request):

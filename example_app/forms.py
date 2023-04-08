@@ -7,9 +7,9 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
 
-        fields = ['name', 'description', 'company']
+        fields = ['name', 'description']
         labels = {
-            'name': 'Наименование товара', 'description': 'Описание товара', 'company': 'Поставщик'
+            'name': 'Наименование товара', 'description': 'Описание товара'
         }
 
 
