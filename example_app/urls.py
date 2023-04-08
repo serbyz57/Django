@@ -9,5 +9,6 @@ urlpatterns = [
     path('suppliers', suppliers),
     path('warehouse', warehouse),
     path('products', products),
+    path('create/', create),
 ]
 urlpatterns += staticfiles_urlpatterns()

@@ -4,10 +4,18 @@
 Каталог товаров
 {% endblock header %}
 {% block content %}
+
+<form method="POST" action="create/">
+  {% csrf_token %}
+  <table>{{form}}</table>
+  <input type="submit" value="Добавить">
+</form>
+
 <table class="warehouse">
-  <th class="warehouse">Название товара</th>
-  <th class="warehouse">Описание товара</th>
-  <th class="warehouse">Цена</th>
-  <th class="warehouse">Поставщик</th>
+  <tr><th class="warehouse">Название товара</th><th class="warehouse">Описание товара</th>
+    <th class="warehouse">Поставщик</th></tr>
+    {% for product in productse %}
+    <tr><td>{{ product.name }}</td><td>{{ product.description }}</td><td>{{ product.company.name }}</td></tr>
+    {% endfor %}
 </table>
 {% endblock content %}

@@ -4,4 +4,9 @@
 Список поставщиков
 {% endblock header %}
 {% block content %}
+<table class="warehouse">
+  <tr><th class="warehouse">Номер</th><th class="warehouse">Название компании</th></tr>
+    {% for  %}
+  <tr><td class="warehouse">{{ company.id }}</td><td class="warehouse">{{ company.name }}</td></tr>
+</table>
 {% endblock content %}

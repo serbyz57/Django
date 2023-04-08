@@ -8,3 +8,4 @@ table.tableMenu{background: aqua; width: 100%; border-collapse: separate}
 table.table1{background: #ffffff;}
 table.warehouse{background: white; width: 100%; border-collapse: collapse}
 th.warehouse{text-align: center; border: 1px solid black}
+td.warehouse{text-align: center; border: 1px solid black}
