@@ -4,8 +4,20 @@
 Наличие на складе
 {% endblock header %}
 {% block content %}
+
+<form method="POST" action="create_warehouse/">
+  {% csrf_token %}
+  <table>{{form}}</table>
+  <input type="submit" value="Добавить">
+</form>
+
 <table class="warehouse">
-    <th class="warehouse">Адрес склада</th>
-    <th class="warehouse">Наличие товара</th>
+    <tr><th class="warehouse">Наименование товара</th><th class="warehouse">Название компании</th>
+        <th class="warehouse">Дата поставки</th><th class="warehouse">Цена</th><th class="warehouse">Количество</th></tr>
+    {% for warehouse in warehouses %}
+    <tr><td align="center">{{ warehouse.product.name }}</td><td align="center">{{ warehouse.company.name }}</td>
+        <td align="center">{{ warehouse.data }}</td><td align="center">{{ warehouse.price }}</td>
+        <td align="center">{{ warehouse.amount }}</td></tr>
+    {% endfor %}
 </table>
 {% endblock content %}

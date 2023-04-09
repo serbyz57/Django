@@ -4,6 +4,13 @@
 Список поставщиков
 {% endblock header %}
 {% block content %}
+
+<form method="POST" action="create_company/">
+  {% csrf_token %}
+  <table>{{form}}</table>
+  <input type="submit" value="Добавить">
+</form>
+
 <table class="warehouse">
   <tr><th class="warehouse">Номер</th><th class="warehouse">Название компании</th></tr>
     {% for company in companies %}

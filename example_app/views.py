@@ -17,14 +17,15 @@ def contact(request):
 
 
 def suppliers(request):
-    company1, created = Company.objects.get_or_create(name="Диллер")
-    company2, created = Company.objects.get_or_create(name='Китай')
     companies = Company.objects.all()
-    return render(request, 'suppliers.html', {'company1': company1, 'company2': company2, 'companies': companies})
+    form = CompanyForm()
+    return render(request, 'suppliers.html', {'companies': companies, 'form': form})
 
 
 def warehouse(request):
-    return render(request, 'warehouse.html')
+    warehouses = Warehouse.objects.all()
+    form = WarehouseForm()
+    return render(request, 'warehouse.html', {'warehouses': warehouses, 'form': form})
 
 
 def products(request):
@@ -33,9 +34,25 @@ def products(request):
     return render(request, 'products.html', {'productse': productse, 'form': form})
 
 
-def create(request):
+def create_product(request):
     if request.method == 'POST':
         formset = ProductForm(request.POST)
         if formset.is_valid():
             formset.save()
     return HttpResponseRedirect("/products")
+
+
+def create_company(request):
+    if request.method == 'POST':
+        formset = CompanyForm(request.POST)
+        if formset.is_valid():
+            formset.save()
+    return HttpResponseRedirect("/suppliers")
+
+
+def create_warehouse(request):
+    if request.method == 'POST':
+        formset = WarehouseForm(request.POST)
+        if formset.is_valid():
+            formset.save()
+    return HttpResponseRedirect("/warehouse")

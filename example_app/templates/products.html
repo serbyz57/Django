@@ -5,16 +5,16 @@
 {% endblock header %}
 {% block content %}
 
-<form method="POST" action="create/">
+<form method="POST" action="create_product/">
   {% csrf_token %}
   <table>{{form}}</table>
   <input type="submit" value="Добавить">
 </form>
 
 <table class="warehouse">
-  <tr><th class="warehouse">Название товара</th><th class="warehouse">Описание товара</th></tr>
+  <tr><th class="warehouse">Номер</th><th class="warehouse">Название товара</th><th class="warehouse">Описание товара</th></tr>
     {% for product in productse %}
-    <tr><td align="center">{{ product.name }}</td><td align="center">{{ product.description }}</td>
+    <tr><td align="center">{{ product.id }}</td><td align="center">{{ product.name }}</td><td align="center">{{ product.description }}</td>
     {% endfor %}
 </table>
 {% endblock content %}
