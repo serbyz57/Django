@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header %}
+Список проданных товаров
+{% endblock header %}
+{% block content %}
+<table class="warehouse">
+    <tr>
+        <th class="warehouse">Номер</th>
+        <th class="warehouse">Название товара</th>
+        <th class="warehouse">Сотрудник</th>
+        <th class="warehouse">Дата</th>
+        <th class="warehouse">Количество</th>
+        <th class="warehouse">Цена товара</th>
+    </tr>
+    {% for p in deals %}
+    <tr>
+        <td align="center">{{ p.id }}</td>
+        <td align="center">{{ p.product }}</td>
+        <td align="center">{{ p.employer }}</td>
+        <td align="center">{{ p.data }}</td>
+        <td align="center">{{ p.amount }}</td>
+        <td align="center">{{ p.price_by_one }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

@@ -56,3 +56,8 @@ def create_warehouse(request):
         if formset.is_valid():
             formset.save()
     return HttpResponseRedirect("/warehouse")
+
+
+def deal(requset):
+    deals = Deal.objects.all()
+    return render(requset, 'deal.html', {'deals': deals})
