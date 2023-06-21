@@ -29,3 +29,23 @@ class WarehouseForm(ModelForm):
         fields = ['product', 'company', 'data', 'price', 'amount']
         labels = {'product': 'Наименование товара', 'company': 'Название компании', 'data': 'Дата поставки',
                   'price': 'Цена', 'amount': 'Количество'}
+
+
+class RegisterForm(forms.Form):
+    login = forms.CharField(max_length=11,
+                            label='Логин',
+                            widget=forms.TextInput(attrs={'type': 'text', 'class': "field"}))
+    password = forms.CharField(max_length=15,
+                               label='Пароль',
+                               widget=forms.TextInput(attrs={'type': 'text', 'class': "field"}))
+    email = forms.EmailField(label="Email",
+                            widget=forms.TextInput(attrs={'type': 'email', 'class': "field"}))
+
+
+class LoginForm(forms.Form):
+    login = forms.CharField(max_length=11,
+                            label='Логин',
+                            widget=forms.TextInput(attrs={'type': 'text', 'class': "field"}))
+    password = forms.CharField(max_length=15,
+                               label='Пароль',
+                               widget=forms.TextInput(attrs={'type': 'text', 'class': "field"}))

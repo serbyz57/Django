@@ -13,5 +13,6 @@ urlpatterns = [
     path('create_product/', create_product),
     path('create_company/', create_company),
     path('create_warehouse/', create_warehouse),
+    path('profile', profile)
 ]
 urlpatterns += staticfiles_urlpatterns()

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.http import HttpResponseRedirect
+from django.contrib.auth import login, authenticate, logout
 from .forms import *
 
 
@@ -61,3 +62,6 @@ def create_warehouse(request):
 def deal(requset):
     deals = Deal.objects.all()
     return render(requset, 'deal.html', {'deals': deals})
+
+
+def profile(request):
