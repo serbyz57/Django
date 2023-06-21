@@ -13,6 +13,8 @@ urlpatterns = [
     path('create_product/', create_product),
     path('create_company/', create_company),
     path('create_warehouse/', create_warehouse),
-    path('profile', profile)
+    path('login', user_login),
+    path('logout', user_logout),
+    path('register', user_registration),
 ]
 urlpatterns += staticfiles_urlpatterns()

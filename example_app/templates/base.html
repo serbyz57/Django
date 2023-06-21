@@ -10,14 +10,26 @@
   <h1>{% block header %}{% endblock header %}</h1>
   <div>
     <table class="tableMenu">
-      <th class="tableMenu"><a href="/">Главная</a></th>
-      <th class="tableMenu"><a href="/about">О нас</a></th>
-      <th class="tableMenu"><a href="/contact">Контакты</a></th>
-      <th class="tableMenu"><a href="/suppliers">Список поставщиков</a></th>
-      <th class="tableMenu"><a href="/warehouse">Наличие на складе</a></th>
-      <th class="tableMenu"><a href="/products">Каталог товаров</a></th>
-      <th class="tableMenu"><a href="/deal">Список продаж</a></th>
-      <th class="tableMenu"><a href="/profile">Личный кабинет</a></th>
+        {% if user.is_authenticated %}
+            <th class="tableMenu"><a href="/">Главная</a></th>
+            <th class="tableMenu"><a href="/about">О нас</a></th>
+            <th class="tableMenu"><a href="/contact">Контакты</a></th>
+            <th class="tableMenu"><a href="/suppliers">Список поставщиков</a></th>
+            <th class="tableMenu"><a href="/warehouse">Наличие на складе</a></th>
+            <th class="tableMenu"><a href="/products">Каталог товаров</a></th>
+            <th class="tableMenu"><a href="/deal">Список продаж</a></th>
+            <th class="tableMenu">{{user}}, <a href="/logout">Выход</a></th>
+        {% else %}
+            <th class="tableMenu"><a href="/">Главная</a></th>
+            <th class="tableMenu"><a href="/about">О нас</a></th>
+            <th class="tableMenu"><a href="/contact">Контакты</a></th>
+            <th class="tableMenu"><a href="/suppliers">Список поставщиков</a></th>
+            <th class="tableMenu"><a href="/warehouse">Наличие на складе</a></th>
+            <th class="tableMenu"><a href="/products">Каталог товаров</a></th>
+            <th class="tableMenu"><a href="/deal">Список продаж</a></th>
+            <th class="tableMenu"><a href="/login">Вход</a></th>
+            <th class="tableMenu"><a href="/register">Регистрация</a></th>
+        {% endif %}
     </table>
     <hr>
   </div>

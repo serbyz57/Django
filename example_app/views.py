@@ -64,4 +64,45 @@ def deal(requset):
     return render(requset, 'deal.html', {'deals': deals})
 
 
-def profile(request):
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['login']
+            p = form.cleaned_data['password']
+            user = authenticate(username=username, password=p)
+            if user is not None:
+                login(request, user)
+            else:
+                return HttpResponseRedirect("/login", locals())
+        else:
+            return HttpResponseRedirect("/login", locals())
+        return HttpResponseRedirect("/", locals())
+    else:
+        form = LoginForm()
+        return render(request, 'login.html', context={'login_form': form})
+
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect("/", locals())
+
+
+def user_registration(request):
+    form = RegisterForm()
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['login']
+            p = form.cleaned_data['password']
+            user = authenticate(username=username, password=p)
+            print(user)
+            if user is not None:
+                login(request, user)
+            else:
+                email = form.cleaned_data['email']
+                new_user = User.objects.create_user(username=username, password=p, email=email)
+                login(request, new_user)
+        return HttpResponseRedirect("/", locals())
+    else:
+        return render(request, 'register.html', context={'form': form})
